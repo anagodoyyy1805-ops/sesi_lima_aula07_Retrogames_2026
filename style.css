@@ -1,0 +1,317 @@
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo: #0b1026;
+    --painel: #151c38;
+    --roxo: #a855f7;
+    --verde: #b6ff5c;
+    --texto: #f5f3ff;
+    --texto-secundario: #a6aecb;
+    --borda: #303b65;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CABEÇALHO */
+.cabecalho {
+    background: #101630;
+    padding: 25px 8%;
+    border-bottom: 2px solid var(--roxo);
+    box-shadow: 0 4px 20px #a855f722;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.icone-logo {
+    font-size: 35px;
+}
+
+.logo h1 {
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+.logo h1 span {
+    color: var(--verde);
+}
+
+.cabecalho p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 45px auto;
+    padding: 0 24px;
+    flex: 1;
+}
+
+.titulo-secao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.etiqueta {
+    color: var(--verde);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.titulo-secao h2 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.titulo-secao p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+/* BOTÕES */
+button {
+    border: none;
+    border-radius: 7px;
+    padding: 13px 18px;
+    background: var(--roxo);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+button:hover {
+    background: #9333ea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px #a855f744;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--verde);
+    outline-offset: 3px;
+}
+
+/* CATÁLOGO RESPONSIVO */
+.listar-jogos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+#mensagemVazia {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 55px 20px;
+    color: var(--texto-secundario);
+    background: var(--painel);
+    border: 1px dashed var(--borda);
+    border-radius: 12px;
+    line-height: 1.7;
+}
+
+/* CARDS DOS JOGOS */
+.card-jogo {
+    background: var(--painel);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    min-width: 0;
+}
+
+.card-jogo:hover {
+    transform: translateY(-6px);
+    border-color: var(--roxo);
+    box-shadow: 0 8px 25px #a855f722;
+}
+
+.capa {
+    height: 190px;
+    background: #080c1b;
+    overflow: hidden;
+}
+
+.capa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.card-jogo:hover .capa img {
+    transform: scale(1.05);
+}
+
+.info-jogo {
+    padding: 18px;
+}
+
+.info-jogo h3 {
+    font-size: 18px;
+    margin-bottom: 14px;
+    overflow-wrap: anywhere;
+}
+
+.info-jogo p {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.info-jogo strong {
+    display: block;
+    color: var(--verde);
+    font-size: 21px;
+    margin-top: 18px;
+}
+
+/* JANELA MODAL */
+dialog {
+    width: min(92%, 440px);
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: auto;
+    padding: 28px;
+    border: 1px solid var(--roxo);
+    border-radius: 14px;
+    background: var(--painel);
+    color: var(--texto);
+    box-shadow: 0 0 35px #0008;
+}
+
+dialog::backdrop {
+    background: #050817d9;
+    backdrop-filter: blur(4px);
+}
+
+.modal-cabecalho {
+    margin-bottom: 24px;
+}
+
+.modal-cabecalho h2 {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.modal-cabecalho p {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* FORMULÁRIO */
+form label {
+    display: block;
+    margin: 16px 0 7px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 7px;
+    background: #0b1026;
+    color: var(--texto);
+    font-size: 14px;
+}
+
+form input::placeholder {
+    color: #77809f;
+}
+
+form input:focus {
+    border-color: var(--roxo);
+    outline: none;
+    box-shadow: 0 0 0 2px #a855f733;
+}
+
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+button.cancelar {
+    background: #303956;
+    color: var(--texto);
+}
+
+button.cancelar:hover {
+    background: #424d70;
+}
+
+/* RODAPÉ */
+.rodape {
+    padding: 24px 15px;
+    text-align: center;
+    border-top: 1px solid var(--borda);
+    color: var(--texto-secundario);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* TELAS PEQUENAS */
+@media (max-width: 500px) {
+    .cabecalho {
+        padding: 22px;
+    }
+
+    .logo h1 {
+        font-size: 25px;
+    }
+
+    .container {
+        margin: 30px auto;
+        padding: 0 16px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 26px;
+    }
+
+    .titulo-secao button {
+        width: 100%;
+    }
+
+    .listar-jogos {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    dialog {
+        padding: 22px;
+    }
+}
