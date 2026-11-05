@@ -1,1 +1,1 @@
-"# sesi_lima_aula07_Retrogames_2026" 
+# LIMA: Aula 07 - Site de Games Retro
